@@ -1,7 +1,7 @@
 {% with request.resolver_match.view_name as view_name %}
 {% if view_name == "blog:index" %}
   <h1>Лента записей</h1>                        
-  {% for post in posts %}
+  {% for id, post in posts.items %}
   <hr>
   <article>
     <ul>

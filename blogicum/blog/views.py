@@ -1,8 +1,9 @@
+from typing import Union
 from django.shortcuts import render
 from django.http import Http404
 
 
-posts: list[dict[str, int | str]] = [
+posts: list[dict[str, Union[int, str]]] = [
     {
         'id': 0,
         'location': 'Остров отчаянья',
