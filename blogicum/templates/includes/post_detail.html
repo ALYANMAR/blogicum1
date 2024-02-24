@@ -1,7 +1,6 @@
 {% with request.resolver_match.view_name as view_name %}
 {% if view_name == "blog:index" %}
   <h1>Лента записей</h1>                        
-  <!-- Перебираем в цикле все посты -->
   {% for post in posts %}
   <hr>
   <article>
@@ -16,7 +15,6 @@
         Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
       </li>
     </ul>          
-    <!-- Первые 10 слов -->
     <p>
       {{ post.text|truncatewords:10 }}
     </p>

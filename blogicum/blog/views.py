@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import Http404
 
 
-posts = [
+posts: list[dict[str, int| str]] = [
     {
         'id': 0,
         'location': 'Остров отчаянья',
@@ -45,18 +45,22 @@ posts = [
     },
 ]
 
+sorted_posts = dict(sorted(
+    {post['id']: post for post in posts}.items(), reverse=True
+))
+
 
 def index(request):
     template_name = 'blog/index.html'
-    context = {'posts': posts[::-1]}
+    context = {'posts': sorted_posts}
     return render(request, template_name, context)
 
 
 def post_detail(request, post_id):
     template_name = 'blog/detail.html'
-    if post_id >= len(posts):
-        raise Http404('Пост не найден')
-    context = {'post': posts[post_id]}
+    if post_id not in sorted_posts:
+        raise Http404('Страница не найдена!')
+    context = {'post': sorted_posts[post_id]}
     return render(request, template_name, context)
 
 
