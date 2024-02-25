@@ -1,4 +1,5 @@
 from typing import Union
+
 from django.shortcuts import render
 from django.http import Http404
 
@@ -46,9 +47,7 @@ posts: list[dict[str, Union[int, str]]] = [
     },
 ]
 
-sorted_posts = dict(sorted(
-    {post['id']: post for post in posts}.items(), reverse=True
-))
+sorted_posts = dict(reversed({post['id']: post for post in posts}.items()))
 
 
 def index(request):
