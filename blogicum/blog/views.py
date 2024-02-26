@@ -47,20 +47,20 @@ posts: list[dict[str, Union[int, str]]] = [
     },
 ]
 
-sorted_posts = dict(reversed({post['id']: post for post in posts}.items()))
+main_posts = {post['id']: post for post in posts}
 
 
 def index(request):
     template_name = 'blog/index.html'
-    context = {'posts': sorted_posts}
+    context = {'posts': posts[::-1]}
     return render(request, template_name, context)
 
 
 def post_detail(request, post_id):
     template_name = 'blog/detail.html'
-    if post_id not in sorted_posts:
+    if post_id not in main_posts:
         raise Http404('Страница не найдена!')
-    context = {'post': sorted_posts[post_id]}
+    context = {'post': main_posts[post_id]}
     return render(request, template_name, context)
 
 
