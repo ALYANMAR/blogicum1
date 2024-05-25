@@ -1,9 +1,9 @@
-# Блогикум часть 2
+# Блогикум часть 1
 
 ## Это часть работы над проектом Блогикум:
 
-- [Блогикум часть 1](https://github.com/KhobotovAD/django_sprint1)
-- Блогикум часть 2 ⬅ *этот репозиторий*
+- Блогикум часть 1 ⬅ *этот репозиторий*
+- [Блогикум часть 2](https://github.com/KhobotovAD/django_sprint3)
 - [Блогикум часть 3](https://github.com/KhobotovAD/django_sprint4)
 
 ## Скриншот:
